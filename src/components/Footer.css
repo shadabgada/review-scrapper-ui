@@ -1,0 +1,11 @@
+.footer{
+    height: 6vh;
+    background-color: black;
+    color:#047BD5;
+    text-align: center;
+}
+
+a {
+    color:#047BD5;
+    text-decoration: none;
+}

@@ -1,0 +1,23 @@
+.navigation-bar{
+    position:fixed;
+    background-color: black;
+    width: 100%;
+    top: 0;
+}
+
+.navigation-contents{
+    display: flex;
+    justify-content: center;
+    color: #047BD5;
+}
+
+h1{
+    font-weight: 775;
+    padding: 5px;
+    font-style: italic;
+}
+
+img{
+    width: 200px;
+    padding: 15px;
+}
