@@ -1,0 +1,50 @@
+.review-table{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2%;
+
+    overflow-y: scroll;
+    height: 58.5vh;
+
+    
+
+}
+
+.review-table::-webkit-scrollbar {
+    display: none;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+th{
+    padding: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    font-weight: 800;
+    color: #047BD5;
+}
+
+.heading{
+    white-space: nowrap;
+}
+
+
+th:hover {
+    cursor: pointer;
+}
+
+td{
+    text-align: left;
+    padding: 10px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: hsl(205, 52%, 94%);
+  }
+
+

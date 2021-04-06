@@ -3,6 +3,7 @@ import "./ReviewPage.css"
 import { Input } from '@material-ui/core';
 import { OutlinedInput } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import ReviewTable from './ReviewTable';
 
 function ReviewPage() {
     return (
@@ -29,6 +30,9 @@ function ReviewPage() {
                         clear Filters
                     </Button>
                 </div>
+
+
+                <ReviewTable/>                
 
 
             </div>
