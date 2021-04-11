@@ -17,17 +17,16 @@ function ReviewPage() {
     console.log("useffect")
     console.log(data)
     
-
     fetch_and_set(data)
 
   },[data])
 
 
-  const fetch_and_set= (data) => {
-    var pages =  fetchPages(data)
+  const fetch_and_set= async (data) => {
+    var pages =  await fetchPages(data)
     setPagination(pages)
 
-    setPageData( data[0])
+    setPageData(await data[0])
     console.log(pageData)
   }
 
@@ -43,10 +42,10 @@ function ReviewPage() {
 
     const fetchPages = async (data) =>{
         var pages = []
-        var start = []
-        var end = []
+        var start = false
+        var end = false
 
-        if(data[1]?.current==1){
+        if(await data[1]?.current==1){
             start = true;
             console.log(start)
         }
@@ -54,21 +53,21 @@ function ReviewPage() {
         console.log(await data[1]?.current);
         console.log(await data[2]?.total_pages);
         
-        if(data[1]?.current==data[2]?.total_pages){
+        if(await data[1]?.current == await data[2]?.total_pages){
             end = true;
             console.log(end)
         }
   
   
-        if( data[1]?.current < 10 ){
+        if(await data[1]?.current < 10 ){
             pages = Array.from(Array(10).keys()).map(i => 1 + i * 1);
-        } else if( data[1]?.current > (data[2]?.total_pages-9)){
+        } else if(await data[1]?.current >  (await data[2]?.total_pages-9)){
             pages = Array.from(Array(10).keys()).map(i => (data[2]?.total_pages-9) + i * 1);
         }
-        else{
+        else if ((data[1]?.current > 10) && (data[1]?.current <  ( data[2]?.total_pages-9))){
             pages = Array.from(Array(10).keys()).map(i => (data[1]?.current-4) + i * 1);
         }
-        return {"pages":pages,"start":start,"end":end,"current":data[1]?.current}
+        return {"pages":pages,"start":start,"end":end,"current":await data[1]?.current}
     }
 
 
