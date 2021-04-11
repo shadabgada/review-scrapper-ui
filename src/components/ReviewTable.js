@@ -1,5 +1,7 @@
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import React from 'react'
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import React, { useEffect, useState } from 'react'
 import './ReviewTable.css'
 
 
@@ -150,7 +152,7 @@ function ReviewTable() {
             }
         ],
         {
-            "current": "3"
+            "current": "330"
         },
         {
             "total_pages": 332
@@ -162,11 +164,63 @@ function ReviewTable() {
 
       const columns = [
         "Product",
-        "Person Name",
+        "Name",
         "Rating",
+        "CommentHead",
         "Comment",
-        "Comment Heading"
       ];
+
+    
+      const [page, setPage] = useState();
+      const [pageData, setPageData] = useState();
+
+      useEffect(() => {
+        
+
+        var pages = []
+        var start = ""
+        var end = ""
+
+        if(data[1]['current']==1){
+            start = true;
+            console.log(start)
+        }
+
+        if(data[1]['current']==data[2]['total_pages']){
+            end=true;
+            console.log(end)
+        }
+
+
+        if( data[1]['current'] < 10 ){
+            pages = Array.from(Array(10).keys()).map(i => 1 + i * 1);
+        } else if( data[1]['current'] > (data[2]['total_pages']-9)){
+            pages = Array.from(Array(10).keys()).map(i => (data[2]['total_pages']-9) + i * 1);
+        }
+        else{
+            pages = Array.from(Array(10).keys()).map(i => (data[1]['current']-4) + i * 1);
+        }
+        setPage({"pages":pages,"start":start,"end":end})
+
+        console.log(pages)
+
+
+        setPageData(data[0])
+        console.log(pageData)
+    }, [])
+
+
+    const filter_results = (column, value) => {
+        console.log(column);
+        console.log(value);
+        console.log(pageData)
+        
+        setPageData(data[0].filter(page => {
+            if(page[column].toLowerCase().includes(value.toLowerCase())){
+                return page;
+            }
+        }))
+    }   
 
     return (
         <div className="review-table">
@@ -179,11 +233,15 @@ function ReviewTable() {
                          <th>{column }<ArrowUpwardIcon style={{float:"right"}}/></th>
                          )}
                 </tr>
-                    
+                <tr className="heading">
+
+                    {columns.map(column => 
+                         <th><input type="text" onChange={(e)=>filter_results(column, e.target.value)} style={{outline: "none"}}/></th>
+                         )}
+                </tr>
                 
-
-
-                    {data[0].map(
+                
+                    {pageData?.map(
                         data => <tr>
                                 <td>{data.Product}</td>
                                 <td>{data.Name}</td>
@@ -193,6 +251,21 @@ function ReviewTable() {
                             </tr>)}
             </table>
 
+            <div className="paginator">
+                <div className={`page ${page?.start?'start':''}`}>
+                    <NavigateBeforeIcon className="pageIcon"/>
+                </div>
+                    {
+                    page?.pages?.map(
+                        page =><p className={`page ${(data[1]['current']==page)?'current':''}`}>
+                                 {page}
+                                </p>)
+                    }
+                <div className={`page ${page?.end?'end':''}`}>
+                    <NavigateNextIcon className="pageIcon"/>                
+                </div>
+
+            </div>
         </div>
     )
 }

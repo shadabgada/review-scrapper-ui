@@ -4,12 +4,12 @@ import ReviewPage from './ReviewPage'
 import "./HomeScreen.css"
 import Footer from './Footer'
 
-function HomeScreen() {
+function HomeScreen({data}) {
     return (
         <div className="home-screen">
             <Header/>
 
-            <ReviewPage/>
+            <ReviewPage data={data}/>
 
             <Footer/>
             

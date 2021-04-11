@@ -5,7 +5,8 @@ import { OutlinedInput } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import ReviewTable from './ReviewTable';
 
-function ReviewPage() {
+function ReviewPage({data}) {
+    
     return (
         <div className="review-page">
 
@@ -32,7 +33,7 @@ function ReviewPage() {
                 </div>
 
 
-                <ReviewTable/>                
+                <ReviewTable data={data}/>                
 
 
             </div>

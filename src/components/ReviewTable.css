@@ -27,6 +27,7 @@ th{
     border-right: 1px solid #ccc;
     font-weight: 800;
     color: #047BD5;
+
 }
 
 .heading{
@@ -41,10 +42,42 @@ th:hover {
 td{
     text-align: left;
     padding: 10px;
+    font-weight: 400;
   }
   
   tr:nth-child(even) {
     background-color: hsl(205, 52%, 94%);
   }
 
+.paginator{
+    
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content:center;
+    gap: 10px;
 
+}
+
+
+.pageIcon{
+    margin-top: 15px;
+}
+
+.current{
+    background-color:rgb(49, 47, 47);
+    border-radius:45%;
+}
+
+.start{
+    display:none;
+}
+
+.end{
+    display:none;
+}
+
+.page {
+    padding: 5px;
+    cursor: pointer;
+}

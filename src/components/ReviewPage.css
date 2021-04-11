@@ -15,7 +15,7 @@
 
 .search-box{
     display: flex;
-    justify-content: center;
+    justify-content: center;    
     gap: 1%;
     padding: 5px;
 }
