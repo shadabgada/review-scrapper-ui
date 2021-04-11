@@ -111,7 +111,7 @@ function ReviewPage() {
                     </Button>
                 </div>
 
-                <div className="search-filters">
+                {/* <div className="search-filters">
                     <Input placeholder="Product Name"/>
                     <Input placeholder="Rating"/>
                     <Input placeholder="Comment Heading"/>
@@ -122,7 +122,7 @@ function ReviewPage() {
                     <Button variant="contained" color="primary">
                         clear Filters
                     </Button>
-                </div>
+                </div> */}
 
                 <ReviewTable pagination={pagination} pageData={pageData} filter_results={filter_results} getData={getData}/>                
 
