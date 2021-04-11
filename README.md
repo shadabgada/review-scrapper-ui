@@ -3,7 +3,7 @@
 - This react-based user interface displays the reviews from Flipkart in a simple, clean, and readable way with an option to filter them on the basis of person name, rating, comment heading, and description
 - There are thousands of reviews on Flipkart for some products and it becomes difficult to find specific reviews. This project helps to resolve this problem with the help of a single click
 - Consumes a rest API from a Python flask-based scrapper project.
-[Click here to access backend project](https://github.com/shadabgada/reviewScrapper)
+[Click here to access backend project repo](https://github.com/shadabgada/reviewScrapper)
 
 ## Available Scripts
 
